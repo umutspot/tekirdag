@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="tr" class="link-html" dir="ltr">
+    <head>
+        <title>umutspot | Linkstap</title>
+        <base href="https://linkstap.com/">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+                                    <link rel="manifest" href="https://linkstap.com/uploads/pwa/manifest.json" />
+                <meta name="theme-color" content="#5EBBA1"/>
+            
+			                <meta name="apple-mobile-web-app-capable" content="yes">
+                <meta name="mobile-web-app-capable" content="yes">
+                <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+			
+			
+				<link rel="apple-touch-startup-image" href="https://linkstap.com/pwa-splash-generator?size=750x1334&icon=2df1320adcf18a8ca92afc2fb820e448.png&color=000000" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)">
+				<link rel="apple-touch-startup-image" href="https://linkstap.com/pwa-splash-generator?size=1170x2532&icon=2df1320adcf18a8ca92afc2fb820e448.png&color=000000" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)">
+				<link rel="apple-touch-startup-image" href="https://linkstap.com/pwa-splash-generator?size=1179x2556&icon=2df1320adcf18a8ca92afc2fb820e448.png&color=000000" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3)">
+				<link rel="apple-touch-startup-image" href="https://linkstap.com/pwa-splash-generator?size=1290x2796&icon=2df1320adcf18a8ca92afc2fb820e448.png&color=000000" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3)">
+				<link rel="apple-touch-startup-image" href="https://linkstap.com/pwa-splash-generator?size=1536x2048&icon=2df1320adcf18a8ca92afc2fb820e448.png&color=000000" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)">
+				<link rel="apple-touch-startup-image" href="https://linkstap.com/pwa-splash-generator?size=2048x2732&icon=2df1320adcf18a8ca92afc2fb820e448.png&color=000000" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)">
+			        
+        
+        
+        <!-- Open graph / Twitter markup -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://linkstap.com/umutspot" />
+<meta property="og:image" content="https://linkstap.com/uploads/main/5052e4765edda9f76d5120468e37ae72.png" />
+<meta property="og:site_name" content="Linkstap" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@Linkstap_" />
+<meta name="twitter:url" content="https://linkstap.com/umutspot" />
+<meta name="twitter:image" content="https://linkstap.com/uploads/main/5052e4765edda9f76d5120468e37ae72.png" />
+
+                    <link rel="canonical" href="https://linkstap.com/umutspot" />
+        
+        
+                    <link href="https://linkstap.com/uploads/main/701211d1d703c043afc1e05ca58093ef.png" rel="icon" />
+        
+                <link href="https://linkstap.com/themes/altum/assets/css/custom-bootstrap/bootstrap.min.css?v=6200" id="css_theme_style" rel="stylesheet" media="screen,print">
+                    <link href="https://linkstap.com/themes/altum/assets/css/custom.css?v=6200" rel="stylesheet" media="screen,print">
+                    <link href="https://linkstap.com/themes/altum/assets/css/link-custom.css?v=6200" rel="stylesheet" media="screen,print">
+                    <link href="https://linkstap.com/themes/altum/assets/css/animate.min.css?v=6200" rel="stylesheet" media="screen,print">
+        
+                                
+                            <style>
+            html {
+                font-size: 14px !important;
+                            }
+        </style>
+
+        
+        
+                    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.link-verified-small').forEach(el => {
+        // CSS’den rengi al
+        const color = getComputedStyle(el).color;
+        if(color === 'rgb(255, 173, 31)'){ // Turuncu tık
+            el.setAttribute('title', 'Verified by Linkstap.');
+            el.setAttribute('data-original-title', 'Verified by Linkstap.');
+        }
+    });
+});
+</script>
+
+<script>
+(function () {
+  const TARGET_TEXT = 'Verified';
+
+  function patchTooltips(root = document) {
+    // Tooltip içeriği DOM'a geldiyse
+    root.querySelectorAll('.tooltip-inner').forEach(el => {
+      if (el.textContent && el.textContent.includes('Linkstap')) {
+        el.textContent = TARGET_TEXT;
+      }
+    });
+
+    // Attribute tooltipleri (bazı sistemlerde text buradan gelir)
+    root.querySelectorAll('[title],[data-original-title],[data-bs-title],[aria-label]').forEach(el => {
+      const attrs = ['title','data-original-title','data-bs-title','aria-label'];
+
+      attrs.forEach(a => {
+        const v = el.getAttribute(a);
+        if (v && v.includes('Linkstap')) {
+          el.setAttribute(a, TARGET_TEXT);
+        }
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => patchTooltips());
+
+  // Tooltip hover anında oluşuyorsa yakala
+  const obs = new MutationObserver(mutations => {
+    for (const m of mutations) {
+      for (const n of m.addedNodes) {
+        if (n.nodeType !== 1) continue;
+        // Yeni tooltip eklendiyse veya içinde tooltip-inner varsa
+        if (n.matches?.('.tooltip') || n.querySelector?.('.tooltip-inner')) {
+          patchTooltips(n);
+        }
+      }
+    }
+  });
+
+  obs.observe(document.documentElement, { childList: true, subtree: true });
+
+  // Ek güvenlik: hover'da tekrar kontrol
+  document.addEventListener('mouseover', () => patchTooltips(), true);
+})();
+</script>
+        
+                    <style>.xbutton {
+  --black-700: hsla(0 0% 12% / 1);
+  --border_radius: 9999px;
+  --transtion: 0.3s ease-in-out;
+  --offset: 2px;
+
+  cursor: pointer;
+  position: relative;
+  align-items: center;
+  gap: 0.5rem;
+
+  transform-origin: center;
+
+  padding: 1rem 2rem;
+  background-color: transparent;
+
+  border: none;
+  border-radius: var(--border_radius);
+  transform: scale(calc(1 + (var(--active, 0) * 0.1)));
+
+  transition: transform var(--transtion);
+}
+
+.xbutton::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  height: 100%;
+  background-color: var(--black-700);
+
+  border-radius: var(--border_radius);
+  box-shadow: inset 0 0.5px hsl(0, 0%, 100%), inset 0 -1px 2px 0 hsl(0, 0%, 0%),
+    0px 4px 10px -4px hsla(0 0% 0% / calc(1 - var(--active, 0))),
+    0 0 0 calc(var(--active, 0) * 0.375rem) hsl(260 97% 50% / 0.75);
+
+  transition: all var(--transtion);
+  z-index: 0;
+}
+
+.xbutton::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  height: 100%;
+  background-color: hsla(260 97% 61% / 0.75);
+  background-image: radial-gradient(
+      at 51% 89%,
+      hsla(266, 45%, 74%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 100% 100%, hsla(266, 36%, 60%, 1) 0px, transparent 50%),
+    radial-gradient(at 22% 91%, hsla(266, 36%, 60%, 1) 0px, transparent 50%);
+  background-position: top;
+
+  opacity: var(--active, 0);
+  border-radius: var(--border_radius);
+  transition: opacity var(--transtion);
+  z-index: 2;
+}
+
+.xbutton:is(:hover, :focus-visible) {
+  --active: 1;
+}
+.xbutton:active {
+  transform: scale(1);
+}
+
+.xbutton .dots_border {
+  --size_border: calc(100% + 2px);
+
+  overflow: hidden;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: var(--size_border);
+  height: var(--size_border);
+  background-color: transparent;
+
+  border-radius: var(--border_radius);
+  z-index: -10;
+}
+
+.xbutton .dots_border::before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: left;
+  transform: rotate(0deg);
+
+  width: 100%;
+  height: 2rem;
+  background-color: white;
+
+  mask: linear-gradient(transparent 0%, white 120%);
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.xbutton .sparkle {
+  position: relative;
+  z-index: 10;
+
+  width: 1.75rem;
+}
+
+.xbutton .sparkle .path {
+  fill: currentColor;
+  stroke: currentColor;
+
+  transform-origin: center;
+
+  color: hsl(0, 0%, 100%);
+}
+
+.xbutton:is(:hover, :focus) .sparkle .path {
+  animation: path 1.5s linear 0.5s infinite;
+}
+
+.xbutton .sparkle .path:nth-child(1) {
+  --scale_path_1: 1.2;
+}
+.xbutton .sparkle .path:nth-child(2) {
+  --scale_path_2: 1.2;
+}
+.xbutton .sparkle .path:nth-child(3) {
+  --scale_path_3: 1.2;
+}
+
+@keyframes path {
+  0%,
+  34%,
+  71%,
+  100% {
+    transform: scale(1);
+  }
+  17% {
+    transform: scale(var(--scale_path_1, 1));
+  }
+  49% {
+    transform: scale(var(--scale_path_2, 1));
+  }
+  83% {
+    transform: scale(var(--scale_path_3, 1));
+  }
+}
+
+.xbutton .text_button {
+  position: relative;
+  z-index: 10;
+
+  background-image: linear-gradient(
+    90deg,
+    hsla(0 0% 100% / 1) 0%,
+    hsla(0 0% 100% / var(--active, 0)) 120%
+  );
+  background-clip: text;
+
+  font-size: 1rem;
+  color: transparent;
+}</style>
+        
+        
+        
+            </head>
+
+            
+    
+            
+            
+    
+<body class=" link-body " style="background-color: #8EC5FC;background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);background-attachment: scroll;">
+
+
+<div id="backdrop" class="link-body-backdrop" style=""></div>
+
+<div class="container animate__animated animate__fadeIn ">
+    
+<div id="top_left_floating" style="position: fixed; left: 1rem; top: 1rem; z-index: 1;">
+	
+	        <div id="scroll_buttons">
+            <div class="mb-2">
+                <button type="button" class="btn share-button zoom-animation-subtle" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" data-toggle="tooltip" data-placement="right" title="Sayfayı en üste kaydır" data-tooltip-hide-on-click>
+                    <i class="fas fa-fw fa-arrow-up"></i>
+                </button>
+            </div>
+            <div>
+                <button type="button" class="btn share-button zoom-animation-subtle" onclick="window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });" data-toggle="tooltip" data-placement="right" title="Alt kısmı kaydır" data-tooltip-hide-on-click>
+                    <i class="fas fa-fw fa-arrow-down"></i>
+                </button>
+            </div>
+        </div>
+
+		</div>
+
+    
+
+    
+                
+    <div class="row d-flex justify-content-center text-center">
+        <div class="col-md-8 link-content">
+
+            
+            <main id="links" class="my-2">
+                <div class="row">
+                    
+                                            
+                        
+                            
+                            
+<div id="biolink_block_id_13290" data-biolink-block-id="13290" data-biolink-block-type="avatar" class="col-12 my-2">
+    <div class="d-flex flex-column align-items-center">
+        
+            <img src="https://linkstap.com/uploads/avatars/c47cf2b3ebba0e8b1ebcf942c7d136f2.png" class="link-image link-avatar-round " style="width: 125px; height: 125px; border-width: 0px; border-color: white; border-style: solid; object-fit: contain; " alt="" loading="lazy" data-border-width data-border-avatar-radius data-border-style data-border-color data-border-shadow data-avatar />
+
+            </div>
+</div>
+
+                        
+                            
+                            
+<div id="biolink_block_id_13289" data-biolink-block-id="13289" data-biolink-block-type="heading" class="col-12 my-2">
+    <h2 class="h2 m-0 text-break" style="color: #000000; text-align: center;" data-text data-text-color data-text-alignment>
+            Umut Spot        </h2>
+</div>
+
+
+                        
+                            
+                            
+<div id="biolink_block_id_13300" data-biolink-block-id="13300" data-biolink-block-type="paragraph" class="col-12 my-2">
+    <div class="card link-btn-rounded" style="border-width: 0px;border-color: #000000;border-style: solid;background: #00000000;" data-border-width data-border-radius data-border-style data-border-color data-border-shadow data-background-color>
+        <div class=" text-break" style="color: #000000;" data-text data-text-color>
+
+            <div class="ql-content">
+                <p class="ql-align-center text-center"><strong>İletişim Bilgileri Numaraya Ulaşmak İçin Whatsapp'A Tıklayınız</strong><strong><span class="ql-cursor">﻿﻿</span></strong></p>            </div>
+
+        </div>
+    </div>
+</div>
+
+                        
+                            
+                            
+<div id="biolink_block_id_13297" data-biolink-block-id="13297" data-biolink-block-type="link" class="col-12 col-lg-12 my-2">
+    <a
+                    href="https://api.whatsapp.com/send/?phone=905414612309&text&type=phone_number&app_absent=0"
+            data-track-biolink-block-id="13297"
+            target="_blank"
+            rel="nofollow"
+        
+            class="btn btn-block btn-primary link-btn link-hover-animation-smooth link-btn-round  animate__animated animate__ animate__false animate__delay-2s"
+            style="background:#ffffffc7;color:#111111;border-width:5px;border-color:#000000;border-style:inset;text-align:center;"
+            data-text-color data-border-width data-border-radius data-border-style data-border-color data-border-shadow data-animation data-background-color data-text-alignment
+    >
+        <div class="link-btn-image-wrapper link-btn-round" style="display: none;">
+            <img src="" class="link-btn-image" loading="lazy" />
+        </div>
+
+        <span data-icon>
+                            <i class="fab fa-whatsapp mr-1"></i>
+                    </span>
+
+        <span data-name>Whatsapp 1</span>
+    </a>
+</div>
+
+
+                        
+                            
+                            
+<div id="biolink_block_id_13296" data-biolink-block-id="13296" data-biolink-block-type="link" class="col-12 col-lg-12 my-2">
+    <a
+                    href="https://api.whatsapp.com/send/?phone=905384720610&text&type=phone_number&app_absent=0"
+            data-track-biolink-block-id="13296"
+            target="_blank"
+            rel="nofollow"
+        
+            class="btn btn-block btn-primary link-btn link-hover-animation-smooth link-btn-round  animate__animated animate__ animate__false animate__delay-2s"
+            style="background:#ffffffc7;color:#111111;border-width:5px;border-color:#000000;border-style:inset;text-align:center;"
+            data-text-color data-border-width data-border-radius data-border-style data-border-color data-border-shadow data-animation data-background-color data-text-alignment
+    >
+        <div class="link-btn-image-wrapper link-btn-round" style="display: none;">
+            <img src="" class="link-btn-image" loading="lazy" />
+        </div>
+
+        <span data-icon>
+                            <i class="fab fa-whatsapp mr-1"></i>
+                    </span>
+
+        <span data-name>Whatsapp 2</span>
+    </a>
+</div>
+
+
+                        
+                            
+                            
+<div id="biolink_block_id_13298" data-biolink-block-id="13298" data-biolink-block-type="link" class="col-12 col-lg-12 my-2">
+    <a
+                    href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14b48b0042c56833:0x6b62d7f50656189a?sa=X&ved=1t:8290&hl=tr&ictx=111"
+            data-track-biolink-block-id="13298"
+            target="_blank"
+            rel="nofollow"
+        
+            class="btn btn-block btn-primary link-btn link-hover-animation-smooth link-btn-round  animate__animated animate__ animate__false animate__delay-2s"
+            style="background:#ffffffc7;color:#111111;border-width:5px;border-color:#000000;border-style:inset;text-align:center;"
+            data-text-color data-border-width data-border-radius data-border-style data-border-color data-border-shadow data-animation data-background-color data-text-alignment
+    >
+        <div class="link-btn-image-wrapper link-btn-round" style="display: none;">
+            <img src="" class="link-btn-image" loading="lazy" />
+        </div>
+
+        <span data-icon>
+                            <i class="fas fa-map-location-dot mr-1"></i>
+                    </span>
+
+        <span data-name>Harita Linki</span>
+    </a>
+</div>
+
+
+                        
+                            
+                            
+<div id="biolink_block_id_13299" data-biolink-block-id="13299" data-biolink-block-type="link" class="col-12 col-lg-12 my-2">
+    <a
+                    href="https://www.instagram.com/diyar_x59"
+            data-track-biolink-block-id="13299"
+            target="_blank"
+            rel="nofollow"
+        
+            class="btn btn-block btn-primary link-btn link-hover-animation-smooth link-btn-round  animate__animated animate__ animate__false animate__delay-2s"
+            style="background:#ffffffc7;color:#111111;border-width:5px;border-color:#000000;border-style:inset;text-align:center;"
+            data-text-color data-border-width data-border-radius data-border-style data-border-color data-border-shadow data-animation data-background-color data-text-alignment
+    >
+        <div class="link-btn-image-wrapper link-btn-round" style="display: none;">
+            <img src="" class="link-btn-image" loading="lazy" />
+        </div>
+
+        <span data-icon>
+                            <i class="fab fa-square-instagram mr-1"></i>
+                    </span>
+
+        <span data-name>Instagram</span>
+    </a>
+</div>
+
+
+                        
+                            
+                            
+<div id="biolink_block_id_13301" data-biolink-block-id="13301" data-biolink-block-type="business_hours" class="col-12 my-2">
+    <div class="card link-btn-rounded" style="border-width: 0px;border-color: #000000;border-style: solid;background: #00000000;" data-border-width data-border-radius data-border-style data-border-color data-border-shadow data-background-color>
+        <div class=" text-break" style="color: ; text-align: center;" data-text data-text-alignment>
+
+            
+            <div class="d-flex justify-content-center">
+                <div class="d-flex align-items-center">
+                    <div class="mr-3 position-relative">
+                        <div class="link-business-hours-icon-wrapper" style="background: #00000000"></div>
+                        <div class="position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                            <i class="fas fa-fw fa-check-circle" style="color: #00000000"></i>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column text-left">
+                        <strong style="color: #000000">Çalışma Saatleri</strong>
+                        <span class="font-size-small" style="color: #000000">24 Saat Açık</span>
+                    </div>
+                </div>
+            </div>
+
+            
+                    </div>
+    </div>
+</div>
+
+                                                            </div>
+            </main>
+
+            
+            <footer id="footer" class="link-footer">
+                
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const box = document.querySelector('.XTII__wrap');
+  const link = document.querySelector('.XTII__wrap .XTII__link');
+  const closeBtn = document.querySelector('.XTII__wrap .XTII__close');
+
+  if(!box || !link) return;
+
+  // tüm kutu tıklanınca linki aç
+  box.addEventListener('click', function (e) {
+    // close'a basıldıysa asla yönlendirme yapma
+    if(e.target.closest('.XTII__close')) return;
+
+    // zaten linke basıldıysa bırak (çift tetik olmasın)
+    if(e.target.closest('.XTII__link')) return;
+
+    // linkin normal davranışını tetikle
+    link.click();
+  });
+
+  if(closeBtn) {
+    closeBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      box.style.opacity = '0';
+      box.style.transform = 'translateX(-50%) translateY(20px)';
+      setTimeout(() => box.remove(), 250);
+    });
+  }
+});
+</script>                                                            </div>
+            </footer>
+
+        </div>
+    </div>
+</div>
+
+
+    <div class="modal fade" id="share_modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h5 class="modal-title">
+                            <i class="fas fa-fw fa-sm fa-share-alt text-dark mr-2"></i>
+                            Paylaş                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" title="Kapat">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="w-100 mb-3" data-qr="https://linkstap.com/umutspot"></div>
+
+                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                        
+    
+            <button type="button" class="btn btn-gray-100 rounded-2x d-none" style="color: #3a18f2; background-color: rgba(58, 24, 242, 0.1);" data-toggle="tooltip" title="Paylaş: Cihaz" data-native-share>
+            <i class="fas fa-fw fa-share"></i>
+        </button>
+    
+            <a href="mailto:?body=https://linkstap.com/umutspot" target="_blank" class="btn btn-gray-100 rounded-2x" style="color: #3b5998; background-color: rgba(59, 89, 152, 0.1);" data-toggle="tooltip" title="Paylaş: Email">
+            <i class="fas fa-fw fa-envelope"></i>
+        </a>
+    
+    
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://linkstap.com/umutspot" target="_blank" class="btn btn-gray-100 rounded-2x" style="color: #1877F2; background-color: rgba(24, 119, 242, 0.1);" data-toggle="tooltip" title="Paylaş: Facebook">
+            <i class="fab fa-fw fa-facebook"></i>
+        </a>
+    
+            <a href="https://www.threads.net/intent/post?text=https://linkstap.com/umutspot" target="_blank" class="btn btn-gray-100 rounded-2x" style="color: #808080; background-color: rgba(128, 128, 128, 0.1);" data-toggle="tooltip" title="Paylaş: Threads">
+            <i class="fab fa-fw fa-threads"></i>
+        </a>
+    
+            <a href="https://x.com/share?url=https://linkstap.com/umutspot" target="_blank" class="btn btn-gray-100 rounded-2x" style="color: #1DA1F2; background-color: rgba(29, 161, 242, 0.1);" data-toggle="tooltip" title="Paylaş: X">
+            <i class="fab fa-fw fa-twitter"></i>
+        </a>
+    
+            <a href="https://pinterest.com/pin/create/link/?url=https://linkstap.com/umutspot" target="_blank" class="btn btn-gray-100 rounded-2x" style="color: #E60023; background-color: rgba(230, 0, 35, 0.1);" data-toggle="tooltip" title="Paylaş: Pinterest">
+            <i class="fab fa-fw fa-pinterest"></i>
+        </a>
+    
+            <a href="https://linkedin.com/shareArticle?url=https://linkstap.com/umutspot" target="_blank" class="btn btn-gray-100 rounded-2x" style="color: #0077B5; background-color: rgba(0, 119, 181, 0.1);" data-toggle="tooltip" title="Paylaş: LinkedIn">
+            <i class="fab fa-fw fa-linkedin"></i>
+        </a>
+    
+            <a href="https://www.reddit.com/submit?url=https://linkstap.com/umutspot" target="_blank" class="btn btn-gray-100 rounded-2x" style="color: #FF4500; background-color: rgba(255, 69, 0, 0.1);" data-toggle="tooltip" title="Paylaş: Reddit">
+            <i class="fab fa-fw fa-reddit"></i>
+        </a>
+    
+            <a href="https://wa.me/?text=https://linkstap.com/umutspot" class="btn btn-gray-100 rounded-2x" style="color: #25D366; background-color: rgba(37, 211, 102, 0.1);" data-toggle="tooltip" title="Paylaş: Whatsapp">
+            <i class="fab fa-fw fa-whatsapp"></i>
+        </a>
+    
+            <a href="https://t.me/share/url?url=https://linkstap.com/umutspot" class="btn btn-gray-100 rounded-2x" style="color: #0088cc; background-color: rgba(0, 136, 204, 0.1);" data-toggle="tooltip" title="Paylaş: Telegram">
+            <i class="fab fa-fw fa-telegram"></i>
+        </a>
+    
+            <a href="https://www.snapchat.com/scan?attachmentUrl=https://linkstap.com/umutspot" class="btn btn-gray-100 rounded-2x" style="color: #FFB700; background-color: rgba(255, 183, 0, 0.1);" data-toggle="tooltip" title="Paylaş: Snapchat">
+            <i class="fab fa-fw fa-snapchat"></i>
+        </a>
+    
+            <a href="https://teams.microsoft.com/share?href=https%3A%2F%2Flinkstap.com%2Fumutspot" target="_blank" class="btn btn-gray-100 rounded-2x" style="color: #464EB8; background-color: rgba(70, 78, 184, 0.1);" data-toggle="tooltip" title="Paylaş: Microsoft Teams">
+            <i class="fab fa-fw fa-microsoft"></i>
+        </a>
+    
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <div class="input-group">
+                            <input id="share" type="text" class="form-control" value="https://linkstap.com/umutspot" onclick="this.select();" readonly="readonly" />
+
+                            <div class="input-group-append">
+                                <button
+                                        type="button"
+                                        class="btn btn-light border border-left-0"
+                                        data-toggle="tooltip"
+                                        title="Panoya kopyala"
+                                        aria-label="Panoya kopyala"
+                                        data-copy="Panoya kopyala"
+                                        data-copied="Kopyalandı!"
+                                        data-clipboard-target="#share"
+                                >
+                                    <i class="fas fa-fw fa-sm fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </body>
+
+
+
+    
+<input type="hidden" name="global_site_url" value="https://linkstap.com/" />
+<input type="hidden" name="global_url" value="https://linkstap.com/" />
+<input type="hidden" name="global_token" value="3c220f391414d448c374bd320037a921931d17b24acd5e67a4b9533f5087d7f2" />
+<input type="hidden" name="global_number_decimal_point" value="." />
+<input type="hidden" name="global_number_thousands_separator" value="," />
+
+<script>
+    'use strict';
+    
+    /* Some global variables */
+    window.altum = {};
+    let global_token = document.querySelector('input[name="global_token"]').value;
+    let site_url = document.querySelector('input[name="global_site_url"]').value;
+    let url = document.querySelector('input[name="global_url"]').value;
+    let decimal_point = document.querySelector('[name="global_number_decimal_point"]').value;
+    let thousands_separator = document.querySelector('[name="global_number_thousands_separator"]').value;
+</script>
+
+            <script src="https://linkstap.com/themes/altum/assets/js/libraries/jquery.min.js?v=6200"></script>
+            <script src="https://linkstap.com/themes/altum/assets/js/libraries/popper.min.js?v=6200"></script>
+            <script src="https://linkstap.com/themes/altum/assets/js/libraries/bootstrap.min.js?v=6200"></script>
+            <script src="https://linkstap.com/themes/altum/assets/js/custom.js?v=6200"></script>
+    
+            <script src="https://linkstap.com/themes/altum/assets/js/libraries/fontawesome.min.js?v=6200" defer></script>
+            <script src="https://linkstap.com/themes/altum/assets/js/libraries/fontawesome-solid.min.js?v=6200" defer></script>
+            <script src="https://linkstap.com/themes/altum/assets/js/libraries/fontawesome-brands.min.js?v=6200" defer></script>
+    
+            <script>
+            'use strict';
+
+            const toggle_scroll_buttons = () => {
+                const scroll_buttons = document.getElementById('scroll_buttons');
+                scroll_buttons.style.display = document.body.scrollHeight > window.innerHeight ? 'block' : 'none';
+            };
+
+            window.addEventListener('load', toggle_scroll_buttons);
+            window.addEventListener('resize', toggle_scroll_buttons);
+        </script>
+
+		    <script>
+    'use strict';
+    
+        document.querySelectorAll('[data-native-share]').forEach(element => {
+            if(navigator.share) {
+                element.classList.remove('d-none');
+                element.addEventListener('click', event => {
+                    navigator.share({
+                        title: document.title,
+                        url: "https://linkstap.com/umutspot"
+                    }).catch(error => {});
+                })
+            }
+        })
+    </script>
+<script src="https://linkstap.com/themes/altum/assets/js/libraries/clipboard.min.js?v=6200"></script>
+
+<script>
+    'use strict';
+    
+/* Simple copy */
+    let data_copy_elements = document.querySelectorAll('[data-copy=""]');
+
+    if(data_copy_elements.length) {
+        data_copy_elements.forEach(element => {
+            element.classList.add('cursor-pointer');
+            element.setAttribute('data-toggle', 'tooltip');
+            element.setAttribute('title', "Panoya kopyala");
+            element.setAttribute('data-clipboard-text', element.innerText.trim());
+            element.setAttribute('data-copy', "Panoya kopyala");
+            element.setAttribute('data-copied', "Kopyaland\u0131!");
+        });
+
+        tooltips_initiate();
+    }
+
+    let clipboard = new ClipboardJS('[data-clipboard-text],[data-clipboard-target]');
+
+    /* Copy full url handler */
+    $('[data-clipboard-text],[data-clipboard-target]').on('click', event => {
+        let copy = event.currentTarget.dataset.copy;
+        let copied = event.currentTarget.dataset.copied;
+
+        $(event.currentTarget).attr('data-original-title', copied).tooltip('show');
+
+        setTimeout(() => {
+            $(event.currentTarget).attr('data-original-title', copy);
+        }, 500);
+    });
+</script>
+        <script src="https://linkstap.com/themes/altum/assets/js/libraries/jquery-qrcode.min.js?v=6200"></script>
+
+        <script>
+            'use strict';
+
+            let generate_qr = (element, data) => {
+                let default_options = {
+                    render: 'image',
+                    minVersion: 1,
+                    maxVersion: 40,
+                    ecLevel: 'L',
+                    left: 0,
+                    top: 0,
+                    size: 1000,
+                    text: data,
+                    quiet: 0,
+                    mode: 0,
+                    mSize: 0.1,
+                    mPosX: 0.5,
+                    mPosY: 0.5,
+                };
+
+                /* Delete already existing image generated */
+                element.querySelector('img') && element.querySelector('img').remove();
+                $(element).qrcode(default_options);
+
+                /* Set class to QR */
+                element.querySelector('img').classList.add('w-100');
+                element.querySelector('img').classList.add('rounded');
+            }
+
+            let qr_codes = document.querySelectorAll('[data-qr]');
+
+            qr_codes.forEach(element => {
+                generate_qr(element, element.getAttribute('data-qr'));
+            })
+        </script>
+
+        
+        <script>
+    'use strict';
+
+    /* Background backdrop fix on modal */
+    let backdrop_filter = null;
+    $('.modal').on('show.bs.modal', function () {
+        backdrop_filter = document.querySelector('body').style.backdropFilter;
+        document.querySelector('body').style.backdropFilter = '';
+    });
+
+    $('.modal').on('hide.bs.modal', function () {
+        document.querySelector('body').style.backdropFilter = backdrop_filter;
+    });
+
+    /* Internal tracking for biolink page blocks */
+    document.querySelectorAll('a[data-track-biolink-block-id]').forEach(element => {
+        element.addEventListener('click', event => {
+            let biolink_block_id = event.currentTarget.getAttribute('data-track-biolink-block-id');
+            navigator.sendBeacon(`${site_url}l/link?biolink_block_id=${biolink_block_id}&no_redirect`);
+        });
+    });
+
+    /* Fix CSS when using scroll for background attachment on long content */
+    if(document.body.offsetHeight > window.innerHeight) {
+        let background_attachment = document.querySelector('body').style.backgroundAttachment;
+        if(background_attachment == 'scroll') {
+            document.documentElement.style.height = 'auto';
+        }
+    }
+</script>
+
+
+
+    
+    
+    
+</html>
